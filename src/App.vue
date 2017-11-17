@@ -6,10 +6,21 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
+
     export default {
         name: 'app',
         data: function () {
             return {name: 123};
+        },
+        methods: mapActions([
+            'getList'
+        ]),
+        created() {
+            this.getList({
+                id: 123,
+                inventory: 2
+            })
         }
     };
 </script>

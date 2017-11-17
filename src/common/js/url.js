@@ -1,6 +1,6 @@
 
 
-module.exports = {
+export default {
     formatData: function (data) {
         let arr = [];
         for (let name in data) {
