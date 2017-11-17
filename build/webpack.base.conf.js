@@ -39,6 +39,10 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: require.resolve("zepto"),
+        use: "imports-loader?this=>window"
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {

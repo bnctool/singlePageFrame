@@ -14,6 +14,10 @@
     };
 </script>
 
+<style lang="less" src="./common/css/reset.less"></style>
+<style lang="less" src="./common/css/border.less"></style>
+<style lang="less" src="./common/css/page.less"></style>
+
 <style>
 
     #app {

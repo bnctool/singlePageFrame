@@ -1,0 +1,9 @@
+{
+  "id": "_demo_",
+  "version": "1.0.0",
+  "pages": {
+    "name": "index",
+    "file": "index.html",
+    "login": false
+  }
+}
