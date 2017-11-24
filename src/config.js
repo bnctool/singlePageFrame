@@ -1,1 +1,1 @@
-export const GET_LIST = '/data/test';
+export const GET_LIST = process.env.API_HOST + 'data/test';

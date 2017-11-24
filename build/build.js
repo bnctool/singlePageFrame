@@ -10,11 +10,19 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
+let assetsRoot = config.build.assetsRoot
+let assetsSubDirectory = config.build.assetsSubDirectory
 
 const spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+const argv = process.argv.slice(2)
+if (argv.length > 0 && argv[0] === 'wap') {
+  assetsRoot = config.wap.assetsRoot
+  assetsSubDirectory = config.wap.assetsSubDirectory
+}
+
+rm(path.join(assetsRoot, assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()

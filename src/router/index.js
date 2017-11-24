@@ -6,7 +6,8 @@ import Show from '@/components/show';
 Vue.use(Router);
 
 export default new Router({
-    mode: 'history',
+    // NA不支持
+    // mode: 'history',
     routes: [
         {
             path: '/',

@@ -18,6 +18,9 @@
             <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
         </ul>
 
+        <div>{{ path }}</div>
+
+        <router-link to="/show">Go to Show</router-link>
         <ul>
             <li v-for="item in myList" v-text="item.name"></li>
         </ul>
@@ -30,7 +33,8 @@
     export default {
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+                msg: 'Welcome to Your Vue.js App',
+                path: ''
             }
         },
         computed: {
@@ -39,7 +43,7 @@
             })
         },
         created() {
-
+            this.path = this.$router.currentRoute.path;
         }
     }
 </script>

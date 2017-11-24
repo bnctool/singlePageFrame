@@ -1,9 +1,11 @@
 {
-  "id": "_demo_",
-  "version": "1.0.0",
-  "pages": {
-    "name": "index",
-    "file": "index.html",
-    "login": false
-  }
+  "id": "t10order",
+  "version": "1.2.7",
+  "pages": [
+      {
+          "name": "index",
+          "file": "index.html",
+          "login": false
+      }
+  ]
 }

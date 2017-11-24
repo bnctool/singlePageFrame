@@ -7,6 +7,10 @@ import store from  './store/index';
 
 Vue.config.productionTip = false;
 
+if(process.env.NODE_ENV === 'development') {
+    require('./common/js/BNJS');
+}
+
 const BNJSReady = function (readyCallback) {
     if(readyCallback && typeof readyCallback === 'function') {
         if (window.BNJS && typeof window.BNJS === 'object' && BNJS._isAllReady) {
@@ -20,29 +24,8 @@ const BNJSReady = function (readyCallback) {
     }
 };
 
-// mock ready
-import $ from 'zepto';
-window.BNJS = {
-    _isAllReady: true,
-    http: {
-        get(options) {
-            $.ajax({
-                url: options.url,
-                type: 'get',
-                data: options.params,
-                success(json) {
-                    options.onSuccess(json);
-                },
-                error(json) {
-                    options.onFail(json);
-                }
-            });
-        }
-    }
-};
-// need to be removed
-
 BNJSReady(function(){
+    BNJS.ui.hideLoadingPage();
     new Vue({
         el: '#app',
         router,
