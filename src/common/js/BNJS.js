@@ -463,7 +463,7 @@ import $ from 'zepto';
         },
         showLoadingPage: function () {
             if($('#bnjs-loadPage').length<=0){
-                $('body').append('<div id="bnjs-loadPage" style="width:100%;height:100%;background:url(img/nuomiloading.gif) no-repeat center center #fff;background-size:141px 89px;z-index:2000;position:fixed;top:0;left:0;"></div>');
+                $('body').append('<div id="bnjs-loadPage" style="width:100%;height:100%;background-size:141px 89px;z-index:2000;position:fixed;top:0;left:0;"></div>');
             }
             $('#bnjs-loadPage').show();
         },
@@ -476,7 +476,7 @@ import $ from 'zepto';
                 var aErrors = [
                     '<div style="background:#fff;position:fixed;top:0;left:0;width:100%;z-index:2010;height:100%;" id="bnjs-errorPage-par"></div>',
                     '<div style="position:absolute;top:50%;left:0;width:100%;z-index:2020;"  id="bnjs-errorPage">',
-                    '<div style="background:url(img/null.png) no-repeat top center;background-size:118px 130px;height:130px;"></div>',
+                    '<div style="background:url(../../assets/null.png) no-repeat top center;background-size:118px 130px;height:130px;"></div>',
                     '<p style="text-align:center;">',
                     '</p>',
                     '</div>'
