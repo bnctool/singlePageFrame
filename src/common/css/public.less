@@ -1,0 +1,201 @@
+.linear-gradient(@from, @to) {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @from), color-stop(100%, @to));
+  background: -webkit-linear-gradient(top,  @from 0%, @to 100%);
+  background: linear-gradient(to bottom,  @from 0%, @to 100%);
+}
+
+.box-shadow(...) {
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+.box-sizing(@content) {
+    -webkit-box-sizing: @content;
+    box-sizing: @content;
+}
+.border-box() {
+    .box-sizing(border-box);
+}
+
+.text-overflow() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-overflow-clamp(@line: 2) {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+}
+.vertical-align(...) {
+    line-height: @arguments;
+    height: @arguments;
+}
+.font-size(@size: 12) {
+    font-size: 12px;
+    .transform(scale(@size / 12));
+    .transform-origin(50% 50%);
+}
+
+// 向上的实体三角箭头
+.icon-triangle-up(@width, @color) {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-left: @width dashed transparent;
+    border-right: @width dashed transparent;
+    border-bottom: @width solid @color;
+}
+// 向下的实体三角箭头
+.icon-triangle-down(@width, @color) {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-left: @width dashed transparent;
+    border-right: @width dashed transparent;
+    border-top: @width solid @color;
+}
+// 向右的空心三角箭头
+.icon-arrow-right(@width, @height, @line-width, @color) {
+    width: @width;
+    height: @height;
+    border-top: @line-width solid @color;
+    border-right: @line-width solid @color;
+    .transform(rotate(45deg));
+}
+// 向左的空心三角箭头
+.icon-arrow-left(@width, @height, @line-width, @color) {
+    width: @width;
+    height: @height;
+    border-top: @line-width solid @color;
+    border-left: @line-width solid @color;
+    .transform(rotate(-45deg));
+}
+// 向下的空心三角箭头
+.icon-arrow-down(@width, @height, @line-width, @color) {
+    width: @width;
+    height: @height;
+    border-bottom: @line-width solid @color;
+    border-left: @line-width solid @color;
+    .transform(rotate(-45deg));
+}
+// 向上的空心三角箭头
+.icon-arrow-up(@width, @height, @line-width, @color) {
+    width: @width;
+    height: @height;
+    border-top: @line-width solid @color;
+    border-left: @line-width solid @color;
+    .transform(rotate(45deg));
+}
+/**
+ * @desc 'X' 十字交叉icon
+ *     @width 十字的长度
+ *     @height 十字的高度
+ * @demo
+ *     div {
+ *         width: 20px;
+ *         height: 20px;
+ *         .cross-icon(12px, 1px, #f00);
+ *     }
+ */
+.cross-icon(@width, @height, @color) {
+    position: relative;
+    .transform(rotate(45deg));
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: @width;
+        height: @height;
+        background: @color;
+        .transform(translate(-50%, -50%));
+    }
+    &:after {
+        width: @height;
+        height: @width;
+    }
+}
+// retina上模拟1px, 2px...
+// -----------------------------------------------------------------------------
+.retina(@top: transparent, @right: transparent, @bottom: transparent, @left: transparent, @w: 1px) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
+        border: none;
+        background-image:
+            -webkit-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+            -webkit-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+            -webkit-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+            -webkit-linear-gradient(0, @left, @left 50%, transparent 50%);
+        background-image:
+            linear-gradient(180deg, @top, @top 50%, transparent 50%),
+            linear-gradient(270deg, @right, @right 50%, transparent 50%),
+            linear-gradient(0deg, @bottom, @bottom 50%, transparent 50%),
+            linear-gradient(90deg, @left, @left 50%, transparent 50%);
+        background-size: 100% @w, @w 100%, 100% @w, @w 100%;
+        background-repeat: no-repeat;
+        background-position: top, right top,  bottom, left top;
+    }
+}
+// 不同分辨率图片的适配
+// -----------------------------------------------------------------------------
+.adaptive(@1x:'', @15x:'', @2x:'', @3x:'') {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1),
+    only screen and (min-device-pixel-ratio: 1) {
+        background-image: url(@1x);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        background-image: url(@15x);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
+        background-image: url(@2x);
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 3),
+    only screen and (min-device-pixel-ratio: 3) {
+        background-image: url(@3x);
+    }
+}
+.pp(@size){
+    padding:@size;
+}
+.pp(@y,@x){
+    padding:@y @x; 
+}
+.pp(@t,@r,@b,@l){
+    padding:@t @r @b @l;
+}
+.mm(@size){
+    margin:@size;
+}
+.mm(@y,@x){
+    margin:@y @x; 
+}
+.mm(@t,@r,@b,@l){
+    margin:@t @r @b @l;
+}
+.fc(@size,@color){
+    font-size:@size;
+    color:@color;
+}
+.lhh(@size){
+    height:@size;
+    line-height:@size;
+}
+.ps(@type: absolute,@top: 0px,@left: 0px){
+    position:@type;
+    top:@top;
+    left:@left;
+}
+.wh(@width, @height){
+    width:@width;
+    height:@height;
+}
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}

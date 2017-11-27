@@ -1,71 +1,99 @@
-@bg-color: #dad7da;
-@error-bg: #f7f7f9;
+@import 'public.less';
 
-.loading-page {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: @bg-color;
-
-    .loading-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+.bnjs-toast-conent{
+    background:rgba(0,0,0,0.5);
+    width:70%;
+    .border-radius(3px);
+    .ps(fixed, 50%, 50%);
+    margin-left:-40%;
+    text-align:center;
+    .pp(0,5%);
+    line-height:18px;  
+    .bnjs-toast-text{
+        overflow:hidden;
+        word-break:break-all;
+        .fc(12px, #fff);
     }
 }
 
-#bnjs-loadPage {
-    background: url(../../assets/nuomiloading.gif) no-repeat center center #fff;
-}
-
-.error-page {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: @error-bg;
-
-    .error-content {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        transform: translate(0, -50%);
-        text-align: center;
-
-        .error-text {
-            padding: 10px 0;
-        }
-
-        .btn-retry {
-            width: 100px;
-            margin: 10px auto 0;
-            padding: 10px;
-            border: 1px solid #bbbbbb;
-            background: #ffffff;
-            color: #fc3e49;
+.bnjs-dialogs{
+    z-index:1000;
+    background:#fff;
+    width:70%;
+    .ps(fixed, 50%, 50%);
+    margin-left:-35%;
+    .bnjs-dialogs-title{
+        .fc(14px, #333);
+        .pp(5px,10px);
+        line-height:20px;
+    }
+    .bnjs-dialogs-message{
+        .fc(12px, #666);
+        .mm(10px, 20px);
+    }
+    .bnjs-dialogs-btn{
+        text-align:center;
+        .pp(5px, 0px, 20px, 0px);
+    }
+    a{
+        .pp(5px, 10px);
+        background:#fff;
+        text-decoration:none;
+        color:#666;
+        &:last-child{
+            margin-left:50px;
         }
     }
 }
 
-.mask {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .6);
-
-    .loading {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100px;
-        height: 100px;
-        transform: translate(-50%, -50%);
-        background: url("../../assets/loading.svg");
-        background-size: cover;
+.bnjs-loadding{
+    width:70%;
+    .ps(fixed,50%,50%);
+    margin-left:-35%;
+    .bnjs-loadding-text{
+        background:url(../../assets/bnjsloading.gif) no-repeat top center; 
+        .wh(100%, 30px);
+        background-size:30px 30px;
+        line-height:20px;
+    }
+    p{
+        text-align:center;
     }
 }
 
-.hide {
-    display: none;
+.bnjs-loadPage{
+    .wh(100%, 100%);
+    background:url(../../assets/nuomiloading.gif) no-repeat center center #fff;
+    background-size:141px 89px;
+    z-index:2000;
+    .ps(fixed);
+}
+
+.bnjs-errorPage-par{
+    background:#fff;
+    .ps(fixed);
+    .wh(100%, 100%);
+    z-index:2010;
+}
+
+.bnjs-errorPage{
+    .ps(absolute,50%);
+    width:100%;
+    z-index:2020;
+    div{
+        background:url(../../assets/null.png) no-repeat top center;
+        background-size:118px 130px;
+        height:130px;
+    }
+    p{
+        text-align:center;
+        margin-top:20px;
+    }
+}
+
+.bnjs-blackbg{
+    background:rgba(0,0,0,0.5);
+    .wh(100%, 100%);
+    .ps(fixed);
+    z-index:1;
 }

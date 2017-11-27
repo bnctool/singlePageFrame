@@ -293,8 +293,8 @@ import $ from 'zepto';
                 var oToast = $("#bnjs-toast");
                 if (oToast.length<=0) {
                     var aToasts = [
-                        '<div class="bnjs-toast-conent" id="bnjs-toast" style="background:rgba(0,0,0,0.5);width:70%;border-radius:5px;position:fixed;top:50%;left:50%;margin-left:-40%;color:#fff;text-align:center;padding:0 5%;line-height:18px;">',
-                        '<p class="bnjs-toast-text" style="overflow:hidden;word-break:break-all;font-size:12px;"></p>',
+                        '<div class="bnjs-toast-conent" id="bnjs-toast">',
+                        '<p class="bnjs-toast-text"></p>',
                         '</div>'
                     ];
                     $('body').append(aToasts.join(""));
@@ -324,14 +324,14 @@ import $ from 'zepto';
                 showBg();
                 if($("#bnjs-dialogs").length<=0){
                     var aDialogs = [
-                        '<div class="bnjs-dialogs" id="bnjs-dialogs" style="z-index:1000;background:#fff;width:70%;position:fixed;top:50%;left:50%;margin-left:-35%">',
-                        '<h1 id="bnjs-dialogs-title" style="font-size:14px;color:#333;padding:5px 10px;line-height:20px;"></h1>',
+                        '<div class="bnjs-dialogs" id="bnjs-dialogs">',
+                        '<h1 id="bnjs-dialogs-title" class="bnjs-dialogs-title"></h1>',
                         '<div>',
-                        '<p  id="bnjs-dialogs-message" style="font-size:12px;color:#666;margin:10px 20px;"></p>',
-                        '<div style="text-align:center;padding:5px 0px 20px;">',
+                        '<p  id="bnjs-dialogs-message" class="bnjs-dialogs-message"></p>',
+                        '<div class="bnjs-dialogs-btn">',
                         '<span>',
-                        '<a href="javascript:;" id="bnjs-dialogs-ok" style="padding:5px 10px;background:#fff;text-decoration:none;color:#666;"></a>',
-                        '<a href="javascript:;" id="bnjs-dialogs-cancel" style="padding:5px 10px;background:#fff;;color:#666;text-decoration:none;margin-left:50px;"></a>',
+                        '<a href="javascript:;" id="bnjs-dialogs-ok"></a>',
+                        '<a href="javascript:;" id="bnjs-dialogs-cancel"></a>',
                         '</span>',
                         '</div>',
                         '</div>',
@@ -362,9 +362,9 @@ import $ from 'zepto';
             showLoading: function (type, text) {
                 if($("#bnjs-loading").length<=0){
                     var aLoadings = [
-                        '<div id="bnjs-loading" style="width:70%;position:fixed;top:50%;left:50%;margin-left:-35%;">',
-                        '<div style="background:url(img/loading.gif) no-repeat top center; width:100%;height:30px;background-size:30px 30px;line-height:20px;"></div>',
-                        '<p style="text-align:center"></p>',
+                        '<div id="bnjs-loading" class="bnjs-loadding">',
+                        '<div class="bnjs-loadding-text"></div>',
+                        '<p></p>',
                         '</div>'
                     ];
                     $("body").append(aLoadings.join(''));
@@ -463,7 +463,7 @@ import $ from 'zepto';
         },
         showLoadingPage: function () {
             if($('#bnjs-loadPage').length<=0){
-                $('body').append('<div id="bnjs-loadPage" style="width:100%;height:100%;background-size:141px 89px;z-index:2000;position:fixed;top:0;left:0;"></div>');
+                $('body').append('<div id="bnjs-loadPage" class="bnjs-loadPage"></div>');
             }
             $('#bnjs-loadPage').show();
         },
@@ -474,10 +474,10 @@ import $ from 'zepto';
             var text = text || '出错了';
             if($('#bnjs-errorPage').length<=0){
                 var aErrors = [
-                    '<div style="background:#fff;position:fixed;top:0;left:0;width:100%;z-index:2010;height:100%;" id="bnjs-errorPage-par"></div>',
-                    '<div style="position:absolute;top:50%;left:0;width:100%;z-index:2020;"  id="bnjs-errorPage">',
-                    '<div style="background:url(../../assets/null.png) no-repeat top center;background-size:118px 130px;height:130px;"></div>',
-                    '<p style="text-align:center;">',
+                    '<div id="bnjs-errorPage-par" class="bnjs-errorPage-par"></div>',
+                    '<div class="bnjs-errorPage" id="bnjs-errorPage">',
+                    '<div></div>',
+                    '<p>',
                     '</p>',
                     '</div>'
                 ];
@@ -648,7 +648,7 @@ import $ from 'zepto';
         if($("#bnjs-blackbg").length>0){
             $("#bnjs-blackbg").show();
         }else{
-            $('body').append('<div class="bnjs-bg" id="bnjs-blackbg" style="background:rgba(0,0,0,0.5);width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;"></div>');
+            $('body').append('<div class="bnjs-blackbg" id="bnjs-blackbg"></div>');
         }
     }
 
