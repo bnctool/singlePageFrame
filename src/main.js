@@ -8,7 +8,7 @@ import store from  './store/index';
 Vue.config.productionTip = false;
 
 if(process.env.NODE_ENV === 'development') {
-    require('./common/js/BNJS');
+    require('./common/js/BNJS');  
 }
 
 const BNJSReady = function (readyCallback) {
