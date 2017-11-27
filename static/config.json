@@ -1,6 +1,6 @@
 {
-  "id": "t10order",
-  "version": "1.2.7",
+  "id": "your component id",
+  "version": "1.0.0",
   "pages": [
       {
           "name": "index",

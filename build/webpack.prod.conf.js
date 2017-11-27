@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const ZipPlugin = require('zip-webpack-plugin')
 
 let env = config.build.env
 let outPath = config.build.assetsRoot
@@ -104,7 +105,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: '',
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    // Compresses all assets into a zip file
+    new ZipPlugin({
+      path: config.build.assetsRoot,
+      filename: 'output.zip'
+    })
   ]
 })
 
